@@ -1,0 +1,57 @@
+/* ABC Theme - Orange/Brown Color Scheme */
+
+:root,
+[data-theme="abc"] {
+  /* Primary Colors (Orange theme) */
+  --color-primary: #fb923c;
+  --color-primary-hover: #ea580c;
+  --color-secondary: #4a2e22;
+  --color-secondary-hover: #374151;
+
+  /* Background Colors */
+  --color-background: #fff;
+  --color-background-primary: #f9fafb;
+  --color-background-secondary: #f3f4f6;
+
+  /* Text Colors */
+  --color-text: #111827;
+  --color-text-secondary: #6b7280;
+
+  /* Border Colors */
+  --color-border: #e5e7eb;
+
+  /* Status Colors */
+  --color-success: #22c55e;
+  --color-error: #dc2626;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+
+  /* =====================================================
+   * SEMANTIC OVERRIDES - ABC THEME
+   * Override semantic colors for orange/brown aesthetic
+   * ===================================================== */
+
+  /* Text Hierarchy Colors */
+  --text-heading-primary: #1f2937; /* Darker gray for headings */
+  --text-heading-secondary: #4a2e22; /* Brown for subheadings */
+  --text-body-primary: #6b7280;
+  --star-color: #fb923c; /* Orange stars to match primary */
+  --link-color: #ea580c; /* Orange links */
+  --link-hover-color: #c2410c; /* Darker orange on hover */
+
+  /* Interactive States */
+  --focus-ring-color: #fb923c; /* Orange focus rings */
+  --hover-bg-color: #fff7ed; /* Light orange hover */
+
+  /* Card Colors */
+  --card-bg-accent-teal: #fff7ed; /* Light orange instead of teal */
+  --card-bg-accent-yellow: #fef3c7; /* Keep yellow accent */
+  --card-bg-accent-orange: #ffedd5; /* Orange accent cards */
+
+  /* Icon Colors */
+  --icon-color-accent: #fb923c; /* Orange accent icons */
+
+  /* Badge Colors */
+  --badge-bg-primary: #fb923c; /* Orange primary badges */
+  --hero-text-color: var(--color-background);
+}

@@ -1,0 +1,30 @@
+---
+description: Coding principles
+globs:
+alwaysApply: true
+---
+
+# Principles
+
+- **TypeScript**
+  - "strict": true
+  - No `any`
+  - Validate external data with Zod
+
+- **SOLID**
+  - Single Responsibility: one component = one concern
+  - Open/Closed: extend via props
+  - Liskov: substitutable components
+  - Interface Segregation: small props
+  - Dependency Inversion: depend on service interfaces
+
+- **Security**
+  - Tokens in HTTP-only cookies
+  - Role checks server-side
+  - Input validation, CSP headers
+
+- **Testing**
+  - Unit tests with React Testing Library
+  - Integration tests for features
+  - E2E with Playwright
+  - Coverage ≥ 80%

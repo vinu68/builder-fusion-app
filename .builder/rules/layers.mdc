@@ -1,0 +1,29 @@
+---
+description: Rules for code layers
+globs:
+alwaysApply: true
+---
+
+# Layer Responsibilities
+
+- **App Layer**
+  - Routing, layouts, API routes, middleware
+  - Keep it declarative and minimal
+
+- **Components Layer**
+  - Pure UI, no data fetching
+  - Strictly typed props
+  - Styled with CSS Modules (BEM naming)
+  - Must include a test file
+
+- **Features Layer**
+  - Combines UI + hooks + service calls
+  - Encapsulates business logic (e.g., search, product list)
+
+- **Services Layer**
+  - Adapters for CMS, APIs, Auth
+  - Expose interfaces, not raw endpoints
+  - Handle token refresh automatically
+
+- **Lib Layer**
+  - Utilities, formatters, framework-agnostic helpers

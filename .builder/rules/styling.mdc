@@ -1,0 +1,18 @@
+---
+description: Styling rules
+globs:
+alwaysApply: true
+---
+
+# Styling & Responsiveness
+
+- Use **CSS Modules** or Tailwind with BEM conventions
+- Breakpoints:
+  - Mobile: <640px
+  - Tablet: 641–1024px
+  - Desktop: 1025–1440px
+  - Large: >1441px
+- Use design tokens for spacing, colors, typography
+- All styles must be responsive
+- Avoid inline styles unless dynamic
+- Ensure WCAG 2.1 AA accessibility

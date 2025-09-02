@@ -1,0 +1,92 @@
+/* Laurete Theme - Professional Black & White with Colorful Accents */
+
+:root[data-theme="laurete"] {
+  /* Primary Colors (Black & White theme) */
+  --color-primary: #000; /* Pure black for headers/footers */
+  --color-primary-hover: #1a1a1a; /* Slightly lighter black on hover */
+  --color-secondary: #5a9bd4; /* Blue accent color */
+  --color-secondary-hover: #4a8bc4; /* Darker blue on hover */
+
+  /* Background Colors */
+  --color-background: #fff; /* Pure white main backgrounds */
+  --color-background-primary: #fff; /* Pure white for primary areas */
+  --color-background-secondary: #f8f9fa; /* Light gray for subtle backgrounds */
+
+  /* Text Colors */
+  --color-text: #1a1a1a; /* Near black for primary text */
+  --color-text-secondary: #4a4a4a; /* Medium gray for secondary text */
+
+  /* Border Colors */
+  --color-border: #e5e7eb; /* Light gray borders */
+
+  /* Status Colors */
+  --color-success: #22c55e; /* Green for success states */
+  --color-error: #ef4444; /* Red for error states */
+  --color-warning: #f59e0b; /* Orange for warning states */
+  --color-info: #5a9bd4; /* Blue for info states */
+
+  /* =====================================================
+   * SEMANTIC OVERRIDES - LAURETE THEME
+   * Professional black/white theme with colorful accents
+   * ===================================================== */
+
+  /* Text Hierarchy Colors */
+  --text-heading-primary: #1a1a1a; /* Near black for headings */
+  --text-heading-secondary: #4a4a4a; /* Medium gray for subheadings */
+  --text-body-primary: #1a1a1a; /* Near black for body text */
+  --text-body-secondary: #4a4a4a; /* Medium gray for secondary text */
+  --star-color: #ffb5a0; /* Peach for star ratings */
+  --link-color: #5a9bd4; /* Blue for links */
+  --link-hover-color: #4a8bc4; /* Darker blue on hover */
+
+  /* Interactive States */
+  --focus-ring-color: #5a9bd4; /* Blue focus rings */
+  --hover-bg-color: #f8f9fa; /* Light gray hover */
+
+  /* Category Accent Colors from Figma */
+  --card-bg-accent-blue: #5a9bd4; /* Blue category cards */
+  --card-bg-accent-peach: #ffb5a0; /* Peach category cards */
+  --card-bg-accent-pink: #f4c2c2; /* Pink category cards */
+  --card-bg-accent-gray: #a8a8a8; /* Gray category cards */
+  --card-bg-accent-teal: #7dd3c0; /* Teal category cards */
+  --card-bg-accent-mint: #e8f5f3; /* Light mint for newsletter */
+
+  /* Icon Colors */
+  --icon-color-primary: #4a4a4a; /* Medium gray icons */
+  --icon-color-secondary: #6b7280; /* Lighter gray icons */
+  --icon-color-accent: #5a9bd4; /* Blue accent icons */
+
+  /* Badge Colors */
+  --badge-bg-primary: #000; /* Black primary badges */
+  --badge-bg-secondary: #f8f9fa; /* Light gray secondary badges */
+
+  /* Input Colors */
+  --input-border-color: #e5e7eb; /* Light gray borders */
+  --input-border-focus-color: #5a9bd4; /* Blue focus borders */
+
+  /* Border Colors */
+  --border-light: #f3f4f6; /* Very light gray borders */
+  --border-light-gray: #e5e7eb; /* Light gray borders */
+  --border-medium-gray: #d1d5db; /* Medium gray borders */
+  --border-accent: #5a9bd4; /* Blue accent borders */
+
+  /* Header & Footer Specific Colors */
+  --header-bg-color: #000; /* Pure black header */
+  --header-text-color: #fff; /* White header text */
+  --footer-bg-color: #000; /* Pure black footer */
+  --footer-text-color: #fff; /* White footer text */
+
+  /* Button Colors */
+  --button-primary-bg: #000; /* Black primary buttons */
+  --button-primary-text: #fff; /* White text on black buttons */
+  --button-primary-hover-bg: #1a1a1a; /* Slightly lighter black on hover */
+  --button-secondary-bg: #f8f9fa; /* Light gray secondary buttons */
+  --button-secondary-text: #1a1a1a; /* Dark text on light buttons */
+
+  /* Promotional Section Colors */
+  --promo-bg-peach: #ffb5a0; /* Peach promotional backgrounds */
+  --promo-bg-mint: #e8f5f3; /* Mint promotional backgrounds */
+  --promo-text-on-peach: #fff; /* White text on peach */
+  --promo-text-on-mint: #1a1a1a; /* Dark text on mint */
+  --hero-text-color: var(--text-heading-primary);
+}

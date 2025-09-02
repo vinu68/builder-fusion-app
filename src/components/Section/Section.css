@@ -1,0 +1,148 @@
+/* Section Component Styles */
+.section {
+  width: 100%;
+  position: relative;
+}
+
+.section__container {
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Background Variants */
+.section--background-default {
+  background: var(--surface-primary, #ffffff);
+  color: var(--text-color, #333333);
+}
+
+.section--background-alternate {
+  background: var(--surface-secondary, #f8f9fa);
+  color: var(--text-color, #333333);
+}
+
+.section--background-primary {
+  background: var(--primary-color, #0070f3);
+  color: var(--text-on-primary, #ffffff);
+}
+
+.section--background-secondary {
+  background: var(--secondary-color, #6c757d);
+  color: var(--text-on-secondary, #ffffff);
+}
+
+/* Padding Variants */
+.section--padding-none .section__container {
+  padding: 0 1rem;
+}
+
+.section--padding-small .section__container {
+  padding: 1rem;
+}
+
+.section--padding-medium .section__container {
+  padding: 2rem 1rem;
+}
+
+.section--padding-large .section__container {
+  padding: 3rem 1rem;
+}
+
+/* Max Width Variants */
+.section--max-width-small .section__container {
+  max-width: 768px;
+}
+
+.section--max-width-medium .section__container {
+  max-width: 1024px;
+}
+
+.section--max-width-large .section__container {
+  max-width: 1200px;
+}
+
+.section--max-width-full .section__container {
+  max-width: 100%;
+}
+
+/* Text Alignment */
+.section--text-left {
+  text-align: left;
+}
+
+.section--text-center {
+  text-align: center;
+}
+
+.section--text-right {
+  text-align: right;
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .section--background-default {
+  --surface-primary: #1a1a1a;
+  --text-color: #e5e5e5;
+}
+
+[data-theme="dark"] .section--background-alternate {
+  --surface-secondary: #2a2a2a;
+  --text-color: #e5e5e5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section--padding-small .section__container {
+    padding: 0.75rem;
+  }
+
+  .section--padding-medium .section__container {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .section--padding-large .section__container {
+    padding: 2rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section--padding-small .section__container {
+    padding: 0.5rem;
+  }
+
+  .section--padding-medium .section__container {
+    padding: 1rem 0.5rem;
+  }
+
+  .section--padding-large .section__container {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+/* Utility Classes for Common Patterns */
+.section--hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.section--full-height {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.section--bordered {
+  border-top: 1px solid var(--border-color, #e5e5e5);
+  border-bottom: 1px solid var(--border-color, #e5e5e5);
+}
+
+.section--shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,135 @@
+/* Base button styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-family: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--button-focus-outline);
+  outline-offset: 2px;
+}
+
+/* Size variants */
+.button--small {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 32px;
+}
+
+.button--medium {
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 40px;
+}
+
+.button--large {
+  padding: 12px 24px;
+  font-size: 18px;
+  line-height: 1.5;
+  min-height: 48px;
+}
+
+/* Variant styles using theme variables */
+.button--contained {
+  background-color: var(--button-primary);
+  color: var(--button-primary-text);
+  border: 1px solid var(--button-primary);
+}
+
+.button--contained:hover:not(.is-disabled) {
+  background-color: var(--button-primary-hover);
+  border-color: var(--button-primary-hover);
+}
+
+.button--contained:active:not(.is-disabled) {
+  background-color: var(--button-primary-active);
+  border-color: var(--button-primary-active);
+}
+
+.button--outline {
+  background-color: var(--button-secondary);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--button-secondary-border);
+}
+
+.button--outline:hover:not(.is-disabled) {
+  background-color: var(--button-secondary-hover-bg);
+  color: var(--button-secondary-hover-text);
+  border-color: var(--button-secondary-hover-bg);
+}
+
+.button--outline:active:not(.is-disabled) {
+  background-color: var(--button-secondary-active-bg);
+  border-color: var(--button-secondary-active-bg);
+  color: var(--button-secondary-hover-text);
+}
+
+.button--text {
+  background-color: var(--button-text);
+  color: var(--button-text-color);
+  border: 1px solid transparent;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.button--text:hover:not(.is-disabled) {
+  background-color: var(--button-text-hover);
+}
+
+.button--text:active:not(.is-disabled) {
+  background-color: var(--button-text-active);
+}
+
+/* Icon styles */
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.button__icon--start {
+  margin-right: 8px;
+}
+
+.button__icon--end {
+  margin-left: 8px;
+}
+
+.button__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Disabled state */
+.is-disabled {
+  opacity: var(--button-disabled-opacity);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 
+Theme switching support:
+All colors now use CSS custom properties that automatically 
+switch between light and dark themes based on user preference 
+or programmatic theme changes.
+
+The button will automatically adapt to:
+- System color scheme (prefers-color-scheme)
+- Manual theme toggles that update CSS custom properties
+- Any custom theme implementations
+
+No additional CSS or JavaScript needed for theme switching!
+*/

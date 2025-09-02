@@ -1,0 +1,576 @@
+/* Footer component styles - Based on Figma design */
+
+.footer {
+  width: 100%;
+  background: #000;
+}
+
+/* Newsletter Section */
+.footer__newsletter-section {
+  background: #C3EFDE;
+  padding: 140px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__newsletter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer__newsletter-title {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 70px;
+  letter-spacing: 1.44px;
+  color: #000;
+  margin: 0 0 24px 0;
+  max-width: 966px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer__newsletter-subtitle {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0.96px;
+  color: #000;
+  margin: 0 0 40px 0;
+  max-width: 1010px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer__newsletter-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  max-width: 489px;
+  margin: 0 auto;
+}
+
+.footer__newsletter-input {
+  flex: 1;
+  height: 42px;
+  padding: 14px;
+  background: #FFF;
+  border: none;
+  border-radius: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #9EA5AD;
+  outline: none;
+}
+
+.footer__newsletter-input::placeholder {
+  color: #9EA5AD;
+}
+
+.footer__newsletter-button {
+  height: 42px;
+  padding: 0 29px;
+  background: #1F3C56;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  line-height: 40px;
+  transition: background-color 0.2s ease;
+}
+
+.footer__newsletter-button:hover:not(:disabled) {
+  background: #163145;
+}
+
+.footer__newsletter-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mindful Brand Section */
+.footer__mindful-section {
+  background: #000;
+  padding: 13px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.footer__mindful-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer__mindful-container span {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFF;
+  line-height: 26px;
+}
+
+.footer__heart {
+  flex-shrink: 0;
+}
+
+/* Benefits Section */
+.footer__benefits-section {
+  background: #000;
+  padding: 10px 0;
+}
+
+.footer__benefits-container {
+  max-width: 1354px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.footer__benefit-card {
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  gap: 53px;
+}
+
+.footer__benefit-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__benefit-icon svg {
+  width: auto;
+  height: auto;
+}
+
+.footer__benefit-content {
+  flex: 1;
+}
+
+.footer__benefit-title {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #FFF;
+  line-height: 26px;
+  margin: 0 0 8px 0;
+}
+
+.footer__benefit-description {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #FFF;
+  line-height: 21px;
+  margin: 0;
+}
+
+.footer__benefit-link {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #FFF;
+  line-height: 21px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.footer__benefit-link:hover {
+  opacity: 0.8;
+}
+
+/* Main Footer */
+.footer__main {
+  background: #000;
+  padding: 89px 0 0 0;
+}
+
+.footer__main-container {
+  max-width: 1362px;
+  margin: 0 auto;
+  padding: 0 279px;
+}
+
+.footer__main-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 130px;
+  margin-bottom: 24px;
+}
+
+/* Company Section */
+.footer__company {
+  flex-shrink: 0;
+  max-width: 248px;
+}
+
+.footer__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.footer__logo-icon {
+  transform: rotate(45deg);
+  margin-left: -11px;
+  margin-top: -18px;
+}
+
+.footer__company-description {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 35px 0;
+}
+
+.footer__social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.footer__social-link:hover {
+  transform: scale(1.1);
+}
+
+/* Links Section */
+.footer__links-section {
+  display: flex;
+  gap: 130px;
+  flex: 1;
+}
+
+.footer__link-column {
+  flex: 1;
+}
+
+.footer__link-title {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #FFF;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 26px 0;
+  line-height: 18px;
+}
+
+.footer__link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__link-list li {
+  margin-bottom: 12px;
+}
+
+.footer__link-list li:last-child {
+  margin-bottom: 0;
+}
+
+.footer__link {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  line-height: 19px;
+  transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+  color: #FFF;
+}
+
+/* Footer Bottom */
+.footer__bottom {
+  border-top: 1px solid #333;
+  padding: 24px 0;
+}
+
+.footer__bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1296px;
+  margin: 0 auto;
+}
+
+.footer__copyright {
+  font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.footer__payment-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer__payment-badge {
+  width: 46px;
+  height: 30px;
+  border-radius: 5px;
+  object-fit: contain;
+  background: #FFF;
+  border: 1px solid #D6DCE5;
+  box-shadow: 
+    0 0.4px 4.5px rgba(183, 183, 183, 0.08),
+    0 4.5px 9px rgba(183, 183, 183, 0.08);
+}
+
+/* Responsive Design */
+
+/* Large Desktop */
+@media (max-width: 1440px) {
+  .footer__main-container {
+    padding: 0 200px;
+  }
+  
+  .footer__main-content {
+    gap: 100px;
+  }
+  
+  .footer__links-section {
+    gap: 100px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .footer__main-container {
+    padding: 0 100px;
+  }
+  
+  .footer__main-content {
+    gap: 80px;
+  }
+  
+  .footer__links-section {
+    gap: 80px;
+  }
+  
+  .footer__benefits-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer__newsletter-title {
+    font-size: 36px;
+    line-height: 50px;
+  }
+  
+  .footer__newsletter-subtitle {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  
+  .footer__main-container {
+    padding: 0 60px;
+  }
+  
+  .footer__main-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .footer__company {
+    max-width: 100%;
+  }
+  
+  .footer__links-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    display: grid;
+  }
+  
+  .footer__benefits-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .footer__benefit-card {
+    padding: 20px 24px;
+    gap: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer__newsletter-section {
+    padding: 80px 0;
+  }
+  
+  .footer__newsletter-title {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0.8px;
+  }
+  
+  .footer__newsletter-subtitle {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+  }
+  
+  .footer__newsletter-form {
+    flex-direction: column;
+    gap: 12px;
+    max-width: 100%;
+  }
+  
+  .footer__newsletter-input,
+  .footer__newsletter-button {
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .footer__main-container {
+    padding: 0 20px;
+  }
+  
+  .footer__main {
+    padding: 60px 0 0 0;
+  }
+  
+  .footer__links-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .footer__bottom-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer__payment-badges {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .footer__mindful-container {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .footer__mindful-container span {
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .footer__newsletter-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  .footer__newsletter-subtitle {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  
+  .footer__benefit-card {
+    padding: 16px;
+    gap: 16px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer__benefit-icon {
+    margin-bottom: 8px;
+  }
+  
+  .footer__social-links {
+    justify-content: center;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .footer__benefit-card {
+    border-width: 2px;
+  }
+  
+  .footer__newsletter-input {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .footer__social-link,
+  .footer__newsletter-button,
+  .footer__benefit-link,
+  .footer__link {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .footer__newsletter-section,
+  .footer__mindful-section,
+  .footer__benefits-section {
+    display: none;
+  }
+  
+  .footer__main {
+    background: #FFF;
+    color: #000;
+  }
+  
+  .footer__main * {
+    color: #000 !important;
+  }
+}

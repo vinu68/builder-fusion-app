@@ -1,0 +1,34 @@
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--button-border);
+  border-radius: 6px;
+  background-color: var(--button-surface);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-text-hover);
+  border-color: var(--button-secondary-border);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--button-focus-outline);
+  outline-offset: 2px;
+}
+
+.theme-toggle__icon {
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-toggle__text {
+  font-weight: 500;
+}

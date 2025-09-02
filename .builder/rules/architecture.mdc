@@ -1,0 +1,23 @@
+---
+description: Project architecture rules
+globs:
+alwaysApply: true
+---
+
+# Architecture Rules
+
+- Use **Next.js App Router** with React Server Components by default.
+- Project must follow this folder structure:
+
+src/
+  app/                         # App Router (layouts, routes, api endpoints)
+  components/                  # Reusable UI components
+  features/                    # Vertical slices (UI + hooks + service calls)
+  services/                    # CMS, API, Auth adapters
+  lib/                         # Utilities/helpers
+  styles/                      # Global styles, design tokens
+  tests/                       # Unit + integration + e2e
+
+- **Service layer** is mandatory: no direct `fetch` calls inside components.
+- Global state (auth, cart, etc.) → use React Context or state libraries (Zustand/Recoil).
+- Authentication → handled via **HTTP-only cookies**, never localStorage.

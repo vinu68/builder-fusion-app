@@ -1,0 +1,92 @@
+---
+description: Component structure
+globs:
+alwaysApply: true
+---
+
+# General Rules
+- All components must be written in **TypeScript** and as **React functional components**.  
+- Always include **prop validation** using TypeScript `type` or `interface`.  
+- Each component must follow **SOLID principles** (single responsibility, open/closed, etc.).  
+- Components must be **testable, reusable, responsive, and composable**.  
+
+---
+
+# File & Folder Structure
+Organize new components in the following way:  
+
+- `src/components/{ComponentName}/index.tsx` → main component file  
+- `src/components/{ComponentName}/{ComponentName}.css` → component-specific styles (BEM naming)  
+- `src/components/{ComponentName}/types.ts` → TypeScript types & interfaces (optional if complex)  
+- `src/components/{ComponentName}/{ComponentName}.test.tsx` → test file for component  
+- `src/components/{ComponentName}/README.md` → documentation (optional)  
+
+---
+
+# Export Rules
+- Always export the component as **default** from `index.tsx`.  
+- Re-export from the **root index.ts** file inside `/src/components`.  
+
+---
+
+# Styling (BEM)
+- Use **BEM naming convention** in CSS classes.  
+- Example:
+  - `.card` → Block  
+  - `.card__title` → Element  
+  - `.card--highlighted` → Modifier  
+- Use **CSS Modules** or Tailwind (if configured).  
+- No inline styles (except dynamic runtime values).  
+
+---
+
+# Responsiveness Rules
+- Always follow **mobile-first design** principles.  
+- Components must adapt gracefully across breakpoints:  
+  - **Small (mobile):** `< 640px`  
+  - **Medium (tablet):** `641px – 1024px`  
+  - **Large (desktop):** `1025px – 1440px`  
+  - **Extra-large (wide screens):** `> 1441px`  
+- Use **relative units (`rem`, `%`, `vh`, `vw`)** instead of fixed `px` where possible.  
+- Ensure text, buttons, and clickable areas have **tap-friendly sizes** on mobile (`min 44px height`).  
+- Use **flexbox or CSS grid** for layouts, not fixed positioning.  
+- Images must use **responsive attributes** (`width: 100%`, `height: auto`, `object-fit: cover`).  
+
+---
+
+# Accessibility (a11y)
+- Add `alt` text for all images.  
+- Use semantic HTML elements (`<button>`, `<nav>`, `<header>`).  
+- Always include `aria-*` attributes where applicable.  
+- Ensure all interactive elements are **keyboard accessible**.  
+
+---
+
+# Testing Rules
+- Each component must have a **matching test file** in the same folder.  
+- Use **React Testing Library + Jest** (or project’s default testing framework).  
+- Cover at least:
+  - Rendering with required props  
+  - Rendering with optional props  
+  - Event handling (e.g., button clicks)  
+  - Accessibility checks (`aria-*`, roles)  
+  - **Responsiveness tests across breakpoints**  
+
+## Responsiveness Testing Utility
+- Create a shared utility at:  
+  `src/tests/utils/renderWithScreenSizes.tsx`  
+- This utility will re-render components at multiple screen sizes for testing.  
+
+Example utility:  
+```tsx
+import { render } from "@testing-library/react";
+
+const screenSizes = [375, 768, 1024, 1440];
+
+export function renderWithScreenSizes(ui: React.ReactElement) {
+  return screenSizes.map((width) => {
+    window.innerWidth = width;
+    window.dispatchEvent(new Event("resize"));
+    return { width, ...render(ui) };
+  });
+}
