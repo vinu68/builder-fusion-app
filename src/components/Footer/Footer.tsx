@@ -332,12 +332,18 @@ export default function Footer({
                     <ul className="footer__link-list">
                       {section.links.map((link, linkIndex) => (
                         <li key={linkIndex}>
-                          <button
+                          <a
+                            href={link.href}
                             className="footer__link"
-                            onClick={() => handleFooterLinkClick(link.label, link.href, section.title, link.external)}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleFooterLinkClick(link.label, link.href, section.title, link.external);
+                            }}
+                            target={link.external ? '_blank' : undefined}
+                            rel={link.external ? 'noopener noreferrer' : undefined}
                           >
                             {link.label}
-                          </button>
+                          </a>
                         </li>
                       ))}
                     </ul>
