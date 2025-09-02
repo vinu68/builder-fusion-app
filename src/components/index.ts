@@ -4,7 +4,7 @@ export type { ButtonProps, ButtonVariant, ButtonSize } from "./Button/types";
 
 export { default as ThemeToggle } from "./ThemeToggle";
 
-export { default as Header, useHeaderBehaviors } from "./Header";
+export { default as Header } from "./Header";
 export type {
   HeaderProps,
   HeaderConfig,
