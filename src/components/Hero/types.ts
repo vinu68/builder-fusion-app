@@ -1,23 +1,27 @@
 export interface HeroProps {
   className?: string;
   title?: string;
-  subtitle?: string;
   description?: string;
-  badgeText?: string;
+  buttonText?: string;
+  currentPrice?: string;
+  originalPrice?: string;
+  offerText?: string;
   backgroundImage?: string;
+  onShopNow?: () => void;
 }
 
 export interface HeroConfig {
-  showBadge?: boolean;
-  showDescription?: boolean;
+  showPricing?: boolean;
+  showButton?: boolean;
   backgroundOverlay?: boolean;
   overlayOpacity?: number;
 }
 
 export interface HeroTexts {
   title?: string;
-  subtitle?: string;
   description?: string;
-  badgeText?: string;
-  descriptionTitle?: string;
+  buttonText?: string;
+  currentPrice?: string;
+  originalPrice?: string;
+  offerText?: string;
 }
