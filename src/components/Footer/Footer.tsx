@@ -255,12 +255,16 @@ export default function Footer({
                   <h3 className="footer__benefit-title">{card.title}</h3>
                   <p className="footer__benefit-description">{card.description}</p>
                   {card.link && (
-                    <button 
+                    <a
+                      href={card.link.href}
                       className="footer__benefit-link"
-                      onClick={() => handleBenefitLinkClick(card.title, card.link!.href)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleBenefitLinkClick(card.title, card.link!.href);
+                      }}
                     >
                       {card.link.text}
-                    </button>
+                    </a>
                   )}
                 </div>
               </div>
