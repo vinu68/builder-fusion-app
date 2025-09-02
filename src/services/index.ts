@@ -6,7 +6,7 @@ export type { DataServiceAdapter, DataTransformer } from './data-service';
 export { dataUtils, transformers, endpoints } from './data-utils';
 
 // Service Examples
-export { HeaderService, useHeaderConfig } from './header-service';
+export { HeaderService } from './header-service';
 
 // Types
 export type {

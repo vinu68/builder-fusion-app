@@ -63,17 +63,24 @@ const Header: React.FC<HeaderProps> = ({
   const behaviors = useHeaderBehaviors({
     ...behaviorConfig,
     onUserAction: (action, data) => {
+      const payload = (data ?? {}) as Record<string, unknown>;
       // Handle analytics tracking through the behavior hook
       switch (action) {
-        case 'search':
-          trackSearchSubmit(data.query, data.results);
+        case 'search': {
+          const query = typeof payload.query === 'string' ? payload.query : '';
+          const results = typeof payload.results === 'number' ? payload.results : undefined;
+          trackSearchSubmit(query, results);
           break;
+        }
         case 'logo_click':
           trackLogoClick();
           break;
-        case 'navigation_click':
-          trackNavigationClick(data.label, data.href);
+        case 'navigation_click': {
+          const label = typeof payload.label === 'string' ? payload.label : '';
+          const href = typeof payload.href === 'string' ? payload.href : '#';
+          trackNavigationClick(label, href);
           break;
+        }
         case 'stores_services_click':
           trackActionClick('stores_services', { 
             location: userLocation,

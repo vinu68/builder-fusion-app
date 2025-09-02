@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { dataService, transformers } from './data-utils';
 import type { HeaderConfig, NavigationItem } from '../components/Header/types';
-
 /**
  * Header Service - Example of using the data service layer
  * to fetch and manage header configuration data
@@ -35,9 +34,9 @@ export class HeaderService {
    * Get cached header configuration
    */
   static async getCachedConfiguration(): Promise<HeaderConfig> {
-    const { cache } = await import('./data-utils');
-    
-    return cache.fetchCached(
+    const { dataUtils } = await import('./data-utils');
+
+    return dataUtils.cache.fetchCached(
       this.CACHE_KEY,
       {
         endpoint: '/api/config/header',
@@ -67,10 +66,10 @@ export class HeaderService {
    */
   static async updateConfiguration(config: Partial<HeaderConfig>): Promise<HeaderConfig> {
     return await dataService.put<HeaderConfig>('/api/config/header', config, {
-      onSuccess: (data) => {
+      onSuccess: () => {
         // Clear cache on successful update
-        const { cache } = require('./data-utils');
-        cache.delete(this.CACHE_KEY);
+        const { dataUtils } = require('./data-utils');
+        dataUtils.cache.delete(this.CACHE_KEY);
       },
     });
   }
@@ -147,7 +146,7 @@ export class HeaderService {
   /**
    * Get default header configuration
    */
-  private static getDefaultConfig(): HeaderConfig {
+  static getDefaultConfig(): HeaderConfig {
     return {
       logo: {
         alt: 'Logo',
@@ -232,8 +231,4 @@ export function useHeaderConfig() {
   return { config, loading, error, refresh };
 }
 
-// Named exports
 export default HeaderService;
-
-// Re-export for convenience
-export { HeaderService as default };

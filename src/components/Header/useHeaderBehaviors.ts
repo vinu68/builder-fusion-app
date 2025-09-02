@@ -19,7 +19,7 @@ export interface HeaderBehaviorConfig {
   onSearchQueryChange?: (query: string) => void;
   
   // User interaction handlers
-  onUserAction?: (action: string, data?: any) => void;
+  onUserAction?: (action: string, data?: unknown) => void;
   
   // Mobile behavior
   onMobileMenuToggle?: (isOpen: boolean) => void;
@@ -292,6 +292,3 @@ export function useHeaderBehaviors(config: HeaderBehaviorConfig = {}): HeaderBeh
     resetBehaviorState,
   };
 }
-
-// Export types
-export type { HeaderBehaviorConfig, HeaderBehaviorState, HeaderBehaviors };

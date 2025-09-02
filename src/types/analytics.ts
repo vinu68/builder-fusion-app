@@ -4,7 +4,7 @@ export interface AnalyticsEvent {
   action: string;
   label?: string;
   value?: number;
-  properties?: Record<string, any>;
+  properties?: Record<string, unknown>;
   timestamp?: number;
   userId?: string;
   sessionId?: string;
@@ -26,15 +26,15 @@ export interface AnalyticsProvider {
   name: string;
   track: (event: AnalyticsEvent) => void | Promise<void>;
   page?: (path: string, title?: string) => void | Promise<void>;
-  identify?: (userId: string, traits?: Record<string, any>) => void | Promise<void>;
-  init?: (config: any) => void | Promise<void>;
+  identify?: (userId: string, traits?: Record<string, unknown>) => void | Promise<void>;
+  init?: (config: unknown) => void | Promise<void>;
 }
 
 export interface ComponentAnalytics {
   component: string;
   element?: string;
   section?: string;
-  properties?: Record<string, any>;
+  properties?: Record<string, unknown>;
 }
 
 // Predefined event categories

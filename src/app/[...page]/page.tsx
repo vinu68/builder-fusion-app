@@ -5,7 +5,11 @@ export const fetchCache = "force-no-store";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export default async function HomePage({ params }: { params: Promise<{ page?: string[] }> }) {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ page?: string[] }>;
+}) {
   const builderModelName = "page";
 
   const { page: slug } = await params;
