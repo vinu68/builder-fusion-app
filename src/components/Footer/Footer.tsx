@@ -306,18 +306,24 @@ export default function Footer({
               {socialLinks.length > 0 && (
                 <div className="footer__social-links">
                   {socialLinks.map((social, index) => (
-                    <button
+                    <a
                       key={index}
+                      href={social.href}
                       className="footer__social-link"
-                      onClick={() => handleSocialClick(social.platform, social.href)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleSocialClick(social.platform, social.href);
+                      }}
                       aria-label={social.platform}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {/* Default social icons */}
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="12" fill="white"/>
                         <path d="M20.7071 11.3474C20.2881 11.5336 19.8458 11.65 19.3802 11.7198C19.8458 11.4405 20.2183 10.9982 20.3812 10.4628C19.9389 10.7188 19.4501 10.9051 18.9146 11.0215C18.4956 10.5792 17.8904 10.2998 17.2386 10.2998C15.9815 10.2998 14.9572 11.3241 14.9572 12.5811C14.9572 12.7674 14.9805 12.9303 15.0271 13.0933C13.1415 13.0002 11.4421 12.0923 10.3014 10.6955C10.1152 11.0447 9.99878 11.4172 9.99878 11.8362C9.99878 12.6277 10.3945 13.3261 11.0231 13.7451C10.6506 13.7218 10.3014 13.6287 9.9755 13.4658V13.489C9.9755 14.6064 10.767 15.5376 11.8145 15.7471C11.6283 15.7937 11.4188 15.8169 11.2093 15.8169C11.0696 15.8169 10.9067 15.7937 10.767 15.7704C11.0696 16.6783 11.9077 17.3533 12.9087 17.3533C12.1172 17.9586 11.1395 18.3311 10.0686 18.3311C9.88239 18.3311 9.69616 18.3311 9.5332 18.3078C10.5575 18.9596 11.7447 19.3321 13.0483 19.3321C17.2618 19.3321 19.5665 15.8402 19.5665 12.8139C19.5665 12.7208 19.5665 12.6044 19.5665 12.5113C20.0088 12.2087 20.4045 11.8129 20.7071 11.3474Z" fill="black"/>
                       </svg>
-                    </button>
+                    </a>
                   ))}
                 </div>
               )}
