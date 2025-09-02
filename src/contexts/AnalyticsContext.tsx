@@ -10,7 +10,7 @@ import type {
 interface AnalyticsContextValue {
   track: (event: AnalyticsEvent) => void;
   page: (path: string, title?: string) => void;
-  identify: (userId: string, traits?: Record<string, any>) => void;
+  identify: (userId: string, traits?: Record<string, unknown>) => void;
   config: AnalyticsConfig;
 }
 
@@ -28,7 +28,7 @@ class ConsoleAnalyticsProvider implements IAnalyticsProvider {
     console.log('Analytics Page:', { path, title });
   }
 
-  identify(userId: string, traits?: Record<string, any>): void {
+  identify(userId: string, traits?: Record<string, unknown>): void {
     console.log('Analytics Identify:', { userId, traits });
   }
 }
@@ -37,8 +37,9 @@ class GoogleAnalyticsProvider implements IAnalyticsProvider {
   name = 'google-analytics';
   private trackingId?: string;
 
-  init(config: { trackingId: string }): void {
-    this.trackingId = config.trackingId;
+  init(config: unknown): void {
+    const cfg = config as { trackingId?: string };
+    this.trackingId = cfg.trackingId;
     
     // Load gtag if not already loaded
     if (typeof window !== 'undefined' && !window.gtag) {
@@ -48,8 +49,8 @@ class GoogleAnalyticsProvider implements IAnalyticsProvider {
       document.head.appendChild(script);
 
       window.dataLayer = window.dataLayer || [];
-      window.gtag = function gtag() {
-        window.dataLayer.push(arguments);
+      window.gtag = function gtag(...args: unknown[]) {
+        window.dataLayer.push(args);
       };
       window.gtag('js', new Date());
       window.gtag('config', this.trackingId);
@@ -58,7 +59,7 @@ class GoogleAnalyticsProvider implements IAnalyticsProvider {
 
   track(event: AnalyticsEvent): void {
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', event.action, {
+      window.gtag('event', String(event.action), {
         event_category: event.category,
         event_label: event.label,
         value: event.value,
@@ -76,7 +77,7 @@ class GoogleAnalyticsProvider implements IAnalyticsProvider {
     }
   }
 
-  identify(userId: string, traits?: Record<string, any>): void {
+  identify(userId: string, traits?: Record<string, unknown>): void {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('config', this.trackingId, {
         user_id: userId,
@@ -94,10 +95,11 @@ class CustomAPIProvider implements IAnalyticsProvider {
   private eventQueue: AnalyticsEvent[] = [];
   private timer?: NodeJS.Timeout;
 
-  init(config: { endpoint: string; batchSize?: number; flushInterval?: number }): void {
-    this.endpoint = config.endpoint;
-    this.batchSize = config.batchSize || 10;
-    this.flushInterval = config.flushInterval || 5000;
+  init(config: unknown): void {
+    const cfg = config as { endpoint?: string; batchSize?: number; flushInterval?: number };
+    this.endpoint = cfg.endpoint;
+    this.batchSize = cfg.batchSize || 10;
+    this.flushInterval = cfg.flushInterval || 5000;
     this.startTimer();
   }
 
@@ -120,7 +122,7 @@ class CustomAPIProvider implements IAnalyticsProvider {
     });
   }
 
-  identify(userId: string, traits?: Record<string, any>): void {
+  identify(userId: string, traits?: Record<string, unknown>): void {
     this.track({
       event: 'identify',
       category: 'user',
@@ -140,7 +142,7 @@ class CustomAPIProvider implements IAnalyticsProvider {
     }, this.flushInterval);
   }
 
-  private async flush(): void {
+  private async flush(): Promise<void> {
     if (!this.endpoint || this.eventQueue.length === 0) return;
 
     const events = [...this.eventQueue];
@@ -239,7 +241,7 @@ export function AnalyticsProvider({
       sessionId: event.sessionId || configRef.current.sessionId,
     };
 
-    providersRef.current.forEach(provider => {
+    providersRef.current.forEach((provider) => {
       try {
         provider.track(enhancedEvent);
       } catch (error) {
@@ -251,7 +253,7 @@ export function AnalyticsProvider({
   const page = useCallback((path: string, title?: string) => {
     if (!configRef.current.enabled) return;
 
-    providersRef.current.forEach(provider => {
+    providersRef.current.forEach((provider) => {
       try {
         if (provider.page) {
           provider.page(path, title);
@@ -262,12 +264,12 @@ export function AnalyticsProvider({
     });
   }, []);
 
-  const identify = useCallback((userId: string, traits?: Record<string, any>) => {
+  const identify = useCallback((userId: string, traits?: Record<string, unknown>) => {
     if (!configRef.current.enabled) return;
 
     configRef.current.userId = userId;
 
-    providersRef.current.forEach(provider => {
+    providersRef.current.forEach((provider) => {
       try {
         if (provider.identify) {
           provider.identify(userId, traits);
@@ -304,7 +306,7 @@ export function useAnalyticsContext() {
 // Declare global gtag for TypeScript
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
+    gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
   }
 }

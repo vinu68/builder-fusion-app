@@ -1,6 +1,7 @@
 'use client';
 
 import { Button, ThemeToggle, Section } from '../components';
+import type { ButtonVariant, ButtonSize } from '../components/Button/types';
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -104,14 +105,14 @@ export default function Home() {
       <Section background="default" padding="large">
         <h2>All Combinations</h2>
         <div className={styles.variantGrid}>
-          {['contained', 'outline', 'text'].map((variant) => (
+          {(['contained', 'outline', 'text'] as ButtonVariant[]).map((variant) => (
             <div key={variant} className={styles.variantColumn}>
               <h3>{variant.charAt(0).toUpperCase() + variant.slice(1)}</h3>
-              {['small', 'medium', 'large'].map((size) => (
+              {(['small', 'medium', 'large'] as ButtonSize[]).map((size) => (
                 <Button
                   key={`${variant}-${size}`}
-                  variant={variant as any}
-                  size={size as any}
+                  variant={variant}
+                  size={size}
                   onClick={() => handleClick(`${variant} ${size}`)}
                   className={styles.demoButton}
                 >

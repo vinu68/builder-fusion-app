@@ -12,23 +12,21 @@ import { ANALYTICS_CATEGORIES, ANALYTICS_ACTIONS } from '../types/analytics';
 
 export function useAnalytics() {
   const context = useContext(AnalyticsContext);
-  
-  if (!context) {
-    console.warn('useAnalytics must be used within an AnalyticsProvider');
-    return {
-      track: () => {},
-      trackClick: () => {},
-      trackView: () => {},
-      trackSearch: () => {},
-      trackNavigation: () => {},
-      trackFormSubmit: () => {},
-      trackError: () => {},
-      page: () => {},
-      identify: () => {},
-    };
-  }
 
-  const { track, page, identify, config } = context;
+  const fallbackConfig = {
+    enabled: false,
+    debug: false,
+    batchSize: 10,
+    flushInterval: 5000,
+    providers: [],
+  } as const;
+
+  const { track, page, identify, config } = context ?? {
+    track: () => {},
+    page: () => {},
+    identify: () => {},
+    config: fallbackConfig as unknown as import('../types/analytics').AnalyticsConfig,
+  };
 
   // Generic track function
   const trackEvent = useCallback((event: Partial<AnalyticsEvent>) => {
@@ -53,7 +51,7 @@ export function useAnalytics() {
   const trackClick = useCallback((
     element: string, 
     componentAnalytics?: ComponentAnalytics,
-    additionalProperties?: Record<string, any>
+    additionalProperties?: Record<string, unknown>
   ) => {
     trackEvent({
       event: 'click',
@@ -73,7 +71,7 @@ export function useAnalytics() {
   const trackView = useCallback((
     element: string,
     componentAnalytics?: ComponentAnalytics,
-    additionalProperties?: Record<string, any>
+    additionalProperties?: Record<string, unknown>
   ) => {
     trackEvent({
       event: 'view',
@@ -135,7 +133,7 @@ export function useAnalytics() {
     formName: string,
     success: boolean,
     componentAnalytics?: ComponentAnalytics,
-    additionalProperties?: Record<string, any>
+    additionalProperties?: Record<string, unknown>
   ) => {
     trackEvent({
       event: 'form_submit',
@@ -201,7 +199,7 @@ export function useComponentAnalytics(componentName: string, section?: string) {
 
   const trackClick = useCallback((
     element: string,
-    additionalProperties?: Record<string, any>
+    additionalProperties?: Record<string, unknown>
   ) => {
     analytics.trackClick(element, componentRef.current, additionalProperties);
   }, [analytics]);
@@ -209,7 +207,7 @@ export function useComponentAnalytics(componentName: string, section?: string) {
   const trackInteraction = useCallback((
     action: AnalyticsAction,
     element: string,
-    additionalProperties?: Record<string, any>
+    additionalProperties?: Record<string, unknown>
   ) => {
     analytics.track({
       event: `${componentName}_${action}`,

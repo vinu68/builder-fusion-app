@@ -21,15 +21,13 @@ export async function getBuilderContent(
   } = options;
 
   try {
-    const content = await builder
-      .get(model, {
-        url: urlPath,
-        query,
-        cacheSeconds,
-        preview,
-        staleCacheSeconds: cacheSeconds * 10,
-      })
-      .promise();
+    const content = await builder.get(model, {
+      url: urlPath,
+      query,
+      cacheSeconds,
+      preview,
+      staleCacheSeconds: cacheSeconds * 10,
+    });
 
     return content as BuilderPageContent;
   } catch (error) {
@@ -45,12 +43,10 @@ export async function getAllBuilderContent(
   model: BuilderModel = DEFAULT_MODEL
 ): Promise<BuilderPageContent[]> {
   try {
-    const content = await builder
-      .getAll(model, {
-        fields: 'id,name,data.url,data.title',
-        limit: 100,
-      })
-      .promise();
+    const content = await builder.getAll(model, {
+      fields: 'id,name,data.url,data.title',
+      limit: 100,
+    });
 
     return content as BuilderPageContent[];
   } catch (error) {
