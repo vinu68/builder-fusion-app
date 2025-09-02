@@ -5,11 +5,16 @@ export const fetchCache = "force-no-store";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export default async function HomePage({ params }: { params: { page?: string[] } }) {
+export default async function HomePage({ params }: { params: Promise<{ page?: string[] }> }) {
   const builderModelName = "page";
 
-  const page = params?.page ?? [];
-  const urlPath = "/" + (page.join("/") || "");
+  const { page: slug } = await params;
+  const segments = slug ?? [];
+  const urlPath = "/" + (segments.join("/") || "");
+
+  if (!process.env.NEXT_PUBLIC_BUILDER_API_KEY) {
+    return null;
+  }
 
   const content = await builder
     .get(builderModelName, {
