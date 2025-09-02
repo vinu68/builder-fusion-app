@@ -31,3 +31,6 @@ export type {
 
 export { default as Section } from "./Section";
 export type { SectionProps } from "./Section/types";
+
+export { default as Hero } from "./Hero";
+export type { HeroProps } from "./Hero/types";

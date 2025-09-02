@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, ThemeToggle, Section } from '../components';
+import { Button, ThemeToggle, Section, Hero } from '../components';
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -10,6 +10,8 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <Hero />
+
       <Section background="default" padding="large" textAlign="center">
         <div className={styles.header}>
           <h1>Component Demo</h1>
